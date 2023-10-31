@@ -64,13 +64,13 @@ public class LinearEquationLogic {
         System.out.println("would you like to enter another pair of coordinates? (y/n)");
         String answer = myScanner.nextLine();
 
-
         while (answer.equals("y")) {
             System.out.println("Enter a value for X: ");
             x = myScanner.nextInt();
             System.out.println("The point on the line is: " + hi.getPoint(x));
             System.out.println("would you like to enter another pair of coordinates? (y/n)");
             answer = myScanner.nextLine();
+
         }
         System.out.println("Thank you for using the slope calculator, goodbye.");
     }
