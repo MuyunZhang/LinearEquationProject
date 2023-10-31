@@ -38,8 +38,9 @@ public class LinearEquationLogic {
         double y2 = Integer.parseInt(c2.substring(idx2 + 2, c2.length() -1));
         hi.setValue(x1, y1, x2, y2);
         double slope = hi.slope();
+        System.out.println("----- Line info -----");
         if (x1 == x2){
-            System.out.println("You cannot enter two points with same X value, this is just a vertical line");
+            System.out.println("These points are on the vertical line: y = "+ x1);
         }
         else{
             double yInt = hi.yIntercept();
@@ -61,7 +62,7 @@ public class LinearEquationLogic {
         while (answer.equals("y")) {
             System.out.println("Enter a value for X: ");
             int x = myScanner.nextInt();
-            System.out.println("The point on the line is: " + hi.coordinateForX(x));
+            System.out.println("Coordinate for X: " + hi.coordinateForX(x));
             System.out.println("would you like to enter another pair of coordinates? (y/n): ");
             answer = myScanner.nextLine();
 

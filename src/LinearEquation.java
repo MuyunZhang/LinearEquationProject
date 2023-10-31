@@ -58,11 +58,37 @@ public class LinearEquation {
 
 
     public String equation(){
-        if(firstY == secondY){
-            equation = "y = " + yIntercept;
+        double y = secondY - firstY;
+        double x = secondX - firstX;
+        int whole = (int)(y/x);
+        int yInt = (int) yIntercept;
+
+        if(yIntercept == yInt){
+            if (firstY == secondY) {
+                equation = "y = " + yInt;
+            } else if (y / x == (int) (y / x) && yInt == 0) {
+                equation = whole + "x";
+            } else if (y / x == (int) (y / x)) {
+                equation = whole + "x " + " + " + yInt;
+            } else if (yInt == 0) {
+                equation = (int) (secondY - firstY) + "/" + (int) (secondX - firstX) + "x";
+            } else {
+                equation = (int) (secondY - firstY) + "/" + (int) (secondX - firstX) + "x " + " + " + yInt;
+            }
         }
-        else{
-            equation = (int) (secondY - firstY) + "/" + (int) (secondX - firstX) + "x " + " + " + yIntercept;
+        else {
+            if (firstY == secondY) {
+                equation = "y = " + yIntercept;
+            } else if (y / x == (int) (y / x) && yIntercept == 0) {
+                equation = whole + "x";
+            } else if (y / x == (int) (y / x)) {
+                equation = whole + "x " + " + " + yIntercept;
+            } else if (yIntercept == 0) {
+                equation = (int) (secondY - firstY) + "/" + (int) (secondX - firstX) + "x";
+            }
+            else {
+                equation = (int) (secondY - firstY) + "/" + (int) (secondX - firstX) + "x " + " + " + yIntercept;
+            }
         }
         return equation;
     }
