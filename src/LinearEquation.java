@@ -43,8 +43,8 @@ public class LinearEquation {
 
 
     public double getDistance(){
-        double first = Math.pow((firstX + secondX), 2);
-        double second = Math.pow((firstY + secondY), 2);
+        double first = Math.pow((firstX - secondX), 2);
+        double second = Math.pow((firstY - secondY), 2);
         double dis = Math.sqrt((first + second));
         dis = Math.round(dis * 100) / 100.0;
         return dis;
@@ -64,7 +64,7 @@ public class LinearEquation {
 
 
     public String getPoint(int x){
-        String point = "(" + x + " " + (x * slope + yIntercept) + ")";
+        String point = "(" + x + ", " + (x * slope + yIntercept) + ")";
         return point;
     }
 }
