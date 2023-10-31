@@ -62,6 +62,7 @@ public class LinearEquationLogic {
         while (answer.equals("y")) {
             System.out.println("Enter a value for X: ");
             int x = myScanner.nextInt();
+            myScanner.nextLine();
             System.out.println("Coordinate for X: " + hi.coordinateForX(x));
             System.out.println("would you like to enter another pair of coordinates? (y/n): ");
             answer = myScanner.nextLine();
