@@ -37,10 +37,10 @@ public class LinearEquationLogic {
         double x2 = Integer.parseInt(c2.substring(1,idx2));
         double y2 = Integer.parseInt(c2.substring(idx2 + 2, c2.length() -1));
         hi.setValue(x1, y1, x2, y2);
-        double slope = hi.getSlope();
-        double yInt = hi.getYIntercept();
+        double slope = hi.slope();
+        double yInt = hi.yIntercept();
         String equation = hi.equation();
-        String distance = String.valueOf(hi.getDistance());
+        String distance = String.valueOf(hi.distance());
 
 
 
@@ -57,20 +57,20 @@ public class LinearEquationLogic {
     }
 
 
-    private void findPoint(){
+    private void findPoint() {
         System.out.println("Enter a value for X: ");
         int x = myScanner.nextInt();
-        System.out.println("The point on the line is: " + hi.getPoint(x));
+        System.out.println("The point on the line is: " + hi.coordinateForX(x));
         System.out.println("would you like to enter another pair of coordinates? (y/n)");
         String answer = myScanner.nextLine();
-
-        while (answer.equals("y")) {
-            System.out.println("Enter a value for X: ");
-            x = myScanner.nextInt();
-            System.out.println("The point on the line is: " + hi.getPoint(x));
-            System.out.println("would you like to enter another pair of coordinates? (y/n)");
-            answer = myScanner.nextLine();
-
+        if (answer.equals("y")) {
+            while (answer.equals("y")) {
+                System.out.println("Enter a value for X: ");
+                x = myScanner.nextInt();
+                System.out.println("The point on the line is: " + hi.coordinateForX(x));
+                System.out.println("would you like to enter another pair of coordinates? (y/n): ");
+                answer = myScanner.nextLine();
+            }
         }
         System.out.println("Thank you for using the slope calculator, goodbye.");
     }

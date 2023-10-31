@@ -26,7 +26,7 @@ public class LinearEquation {
     }
 
 
-    public double getSlope() {
+    public double slope() {
         double x = secondX - firstX;
         double y = secondY - firstY;
 
@@ -42,7 +42,7 @@ public class LinearEquation {
 
 
 
-    public double getDistance(){
+    public double distance(){
         double first = Math.pow((firstX - secondX), 2);
         double second = Math.pow((firstY - secondY), 2);
         double dis = Math.sqrt((first + second));
@@ -51,19 +51,24 @@ public class LinearEquation {
     }
 
 
-    public double getYIntercept(){
+    public double yIntercept(){
         yIntercept = secondY - slope * secondX;
         return yIntercept;
     }
 
 
     public String equation(){
-        equation = (int) (secondX - firstX) + "/" + (int) (secondY - firstY) + "x " + " + " + yIntercept;
+        if(firstY == secondY){
+            equation = "y = " + yIntercept;
+        }
+        else{
+            equation = (int) (secondX - firstX) + "/" + (int) (secondY - firstY) + "x " + " + " + yIntercept;
+        }
         return equation;
     }
 
 
-    public String getPoint(int x){
+    public String coordinateForX(double x){
         String point = "(" + x + ", " + (x * slope + yIntercept) + ")";
         return point;
     }
