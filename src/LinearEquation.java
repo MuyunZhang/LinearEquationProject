@@ -62,7 +62,7 @@ public class LinearEquation {
             equation = "y = " + yIntercept;
         }
         else{
-            equation = (int) (secondX - firstX) + "/" + (int) (secondY - firstY) + "x " + " + " + yIntercept;
+            equation = (int) (secondY - firstY) + "/" + (int) (secondX - firstX) + "x " + " + " + yIntercept;
         }
         return equation;
     }

@@ -38,40 +38,36 @@ public class LinearEquationLogic {
         double y2 = Integer.parseInt(c2.substring(idx2 + 2, c2.length() -1));
         hi.setValue(x1, y1, x2, y2);
         double slope = hi.slope();
-        double yInt = hi.yIntercept();
-        String equation = hi.equation();
-        String distance = String.valueOf(hi.distance());
+        if (x1 == x2){
+            System.out.println("You cannot enter two points with same X value, this is just a vertical line");
+        }
+        else{
+            double yInt = hi.yIntercept();
+            String equation = hi.equation();
+            String distance = String.valueOf(hi.distance());
 
 
-
-
-
-
-
-
-        System.out.println("The two points are: " + c1 + " and " + c2);
-        System.out.println("The equation of the line between these points is: "+ equation);
-        System.out.println("The slope of this line is: " + slope);
-        System.out.println("The y-intercept of this line is: " + yInt);
-        System.out.println("The distance between these points is " + distance);
+            System.out.println("The two points are: " + c1 + " and " + c2);
+            System.out.println("The equation of the line between these points is: "+ equation);
+            System.out.println("The slope of this line is: " + slope);
+            System.out.println("The y-intercept of this line is: " + yInt);
+            System.out.println("The distance between these points is " + distance);
+        }
     }
 
 
     private void findPoint() {
-        System.out.println("Enter a value for X: ");
-        int x = myScanner.nextInt();
-        System.out.println("The point on the line is: " + hi.coordinateForX(x));
-        System.out.println("would you like to enter another pair of coordinates? (y/n)");
-        String answer = myScanner.nextLine();
-        if (answer.equals("y")) {
-            while (answer.equals("y")) {
-                System.out.println("Enter a value for X: ");
-                x = myScanner.nextInt();
-                System.out.println("The point on the line is: " + hi.coordinateForX(x));
-                System.out.println("would you like to enter another pair of coordinates? (y/n): ");
-                answer = myScanner.nextLine();
+        String answer = "y";
+        while (answer.equals("y")) {
+            System.out.println("Enter a value for X: ");
+            int x = myScanner.nextInt();
+            System.out.println("The point on the line is: " + hi.coordinateForX(x));
+            System.out.println("would you like to enter another pair of coordinates? (y/n): ");
+            answer = myScanner.nextLine();
+
+            if(answer.equals("n")){
+                System.out.println("Thank you for using the slope calculator, goodbye.");
             }
         }
-        System.out.println("Thank you for using the slope calculator, goodbye.");
     }
 }
