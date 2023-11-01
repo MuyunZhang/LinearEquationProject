@@ -53,7 +53,8 @@ public class LinearEquation {
 
 
     public double yIntercept(){
-        yIntercept = secondY - slope * secondX;
+        double y = secondY - slope * secondX;
+        yIntercept = Math.round(y * 100) / 100.0;
         return yIntercept;
     }
 
@@ -71,45 +72,82 @@ public class LinearEquation {
             y = -1 * y;
             x = -1 * x;
         }
-
-        if(yIntercept == yInt){
-            if (firstY == secondY) {
-                equation = "y = " + yInt;
-            } else if (y / x == (int) (y / x) && yInt == 0) {
-                equation = whole + "x";
-            } else if (y / x == (int) (y / x)) {
-                equation = whole + "x " + " + " + yInt;
-            } else if (yInt == 0) {
-                equation = (int) (y) + "/" + (int) (x) + "x";
-            } else if (yInt <0) {
-                yInt = Math.abs(yInt);
-                equation = (int) (y) + "/" + (int) (x) + "x " + " - " + yInt;
-            } else {
-                equation = (int) (y) + "/" + (int) (x) + "x " + " + " + yInt;
+        if(slope == 1 || slope == -1){
+            if(yIntercept == yInt){
+                if (firstY == secondY) {
+                    equation = "y = " + yInt;
+                } else if (y / x == (int) (y / x) && yInt == 0) {
+                    equation = "x";
+                } else if (y / x == (int) (y / x)) {
+                    equation = "x " + "+ " + yInt;
+                } else if (yInt == 0) {
+                    equation = (int) (y) + "/" + (int) (x) + "x";
+                } else if (yInt <0) {
+                    yInt = Math.abs(yInt);
+                    equation = (int) (y) + "/" + (int) (x) + "x " + " - " + yInt;
+                } else {
+                    equation = (int) (y) + "/" + (int) (x) + "x " + " + " + yInt;
+                }
+            }
+            else {
+                if (firstY == secondY) {
+                    equation = "y = " + yIntercept;
+                } else if (y / x == (int) (y / x) && yIntercept == 0) {
+                    equation = whole + "x";
+                } else if (y / x == (int) (y / x)) {
+                    equation = whole + "x " + " + " + yIntercept;
+                } else if (yIntercept == 0) {
+                    equation = (int) (y) + "/" + (int) (x) + "x";
+                } else if (yIntercept <0) {
+                    yIntercept = Math.abs(yIntercept);
+                    equation = (int) (y) + "/" + (int) (x) + "x " + " - " + yIntercept;
+                } else {
+                    equation = (int) (y) + "/" + (int) (x) + "x " + " + " + yIntercept;
+                }
             }
         }
         else {
-            if (firstY == secondY) {
-                equation = "y = " + yIntercept;
-            } else if (y / x == (int) (y / x) && yIntercept == 0) {
-                equation = whole + "x";
-            } else if (y / x == (int) (y / x)) {
-                equation = whole + "x " + " + " + yIntercept;
-            } else if (yIntercept == 0) {
-                equation = (int) (y) + "/" + (int) (x) + "x";
-            } else if (yIntercept <0) {
-                yIntercept = Math.abs(yIntercept);
-                equation = (int) (y) + "/" + (int) (x) + "x " + " - " + yIntercept;
-            } else {
-                equation = (int) (y) + "/" + (int) (x) + "x " + " + " + yIntercept;
+            if(yIntercept == yInt){
+                if (firstY == secondY) {
+                    equation = "y = " + yInt;
+                } else if (y / x == (int) (y / x) && yInt == 0) {
+                    equation = whole + "x";
+                } else if (y / x == (int) (y / x)) {
+                    equation = whole + "x " + " + " + yInt;
+                } else if (yInt == 0) {
+                    equation = (int) (y) + "/" + (int) (x) + "x";
+                } else if (yInt <0) {
+                    yInt = Math.abs(yInt);
+                    equation = (int) (y) + "/" + (int) (x) + "x " + " - " + yInt;
+                } else {
+                    equation = (int) (y) + "/" + (int) (x) + "x " + " + " + yInt;
+                }
+            }
+            else {
+                if (firstY == secondY) {
+                    equation = "y = " + yIntercept;
+                } else if (y / x == (int) (y / x) && yIntercept == 0) {
+                    equation = whole + "x";
+                } else if (y / x == (int) (y / x)) {
+                    equation = whole + "x " + " + " + yIntercept;
+                } else if (yIntercept == 0) {
+                    equation = (int) (y) + "/" + (int) (x) + "x";
+                } else if (yIntercept <0) {
+                    yIntercept = Math.abs(yIntercept);
+                    equation = (int) (y) + "/" + (int) (x) + "x " + " - " + yIntercept;
+                } else {
+                    equation = (int) (y) + "/" + (int) (x) + "x " + " + " + yIntercept;
+                }
             }
         }
+
         return equation;
     }
 
 
     public String coordinateForX(double x){
-        String point = "(" + x + ", " + (x * slope + yIntercept) + ")";
+        double um = (x * slope + yIntercept);
+        String point = "(" + x + ", " + (Math.round(um * 100) / 100.0) + ")";
         return point;
     }
     public String lineinfo(){
