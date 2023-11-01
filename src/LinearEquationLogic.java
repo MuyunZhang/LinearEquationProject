@@ -3,7 +3,7 @@ public class LinearEquationLogic {
 
 
     private Scanner myScanner;
-    private LinearEquation hi =null;
+    private LinearEquation hi = new LinearEquation(0, 0, 0, 0);
     public LinearEquationLogic(){
         myScanner = new Scanner(System.in);
     }
@@ -37,7 +37,6 @@ public class LinearEquationLogic {
         int x2 = Integer.parseInt(c2.substring(1,idx2));
         int y2 = Integer.parseInt(c2.substring(idx2 + 2, c2.length() -1));
         hi.setValue(x1, y1, x2, y2);
-        LinearEquation hi = new LinearEquation(x1, y1, x2, y2);
         double slope = hi.slope();
         System.out.println("----- Line info -----");
         if (x1 == x2){
