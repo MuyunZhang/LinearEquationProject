@@ -3,7 +3,7 @@ public class LinearEquationLogic {
 
 
     private Scanner myScanner;
-    private LinearEquation hi = new LinearEquation();
+    private LinearEquation hi =null;
     public LinearEquationLogic(){
         myScanner = new Scanner(System.in);
     }
@@ -14,7 +14,7 @@ public class LinearEquationLogic {
 
 
     public void start(){
-        lineInfo();
+        lineInfor();
         findPoint();
     }
 
@@ -25,18 +25,19 @@ public class LinearEquationLogic {
 
 
 
-    private void lineInfo(){
+    private void lineInfor(){
         System.out.println("Enter coordinate 1: ");
         String c1 = myScanner.nextLine();
         int idx = c1.indexOf(",");
         System.out.println("Enter coordinate 2: ");
         String c2 = myScanner.nextLine();
         int idx2 = c2.indexOf(",");
-        double x1 = Integer.parseInt(c1.substring(1,idx));
-        double y1 = Integer.parseInt(c1.substring(idx + 2,c1.length() - 1));
-        double x2 = Integer.parseInt(c2.substring(1,idx2));
-        double y2 = Integer.parseInt(c2.substring(idx2 + 2, c2.length() -1));
+        int x1 = Integer.parseInt(c1.substring(1,idx));
+        int y1 = Integer.parseInt(c1.substring(idx + 2,c1.length() - 1));
+        int x2 = Integer.parseInt(c2.substring(1,idx2));
+        int y2 = Integer.parseInt(c2.substring(idx2 + 2, c2.length() -1));
         hi.setValue(x1, y1, x2, y2);
+        LinearEquation hi = new LinearEquation(x1, y1, x2, y2);
         double slope = hi.slope();
         System.out.println("----- Line info -----");
         if (x1 == x2){

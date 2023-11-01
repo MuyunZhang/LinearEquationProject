@@ -14,7 +14,15 @@ public class LinearEquation {
     private String equation;
 
 
-    public LinearEquation() {
+    public LinearEquation(int x1, int y1, int x2, int y2) {
+        firstX = x1;
+        secondX = x2;
+        firstY = y1;
+        secondY = y2;
+        slope = slope();
+        distance = distance();
+        yIntercept= yIntercept();
+        equation = equation();
     }
 
 
@@ -104,6 +112,16 @@ public class LinearEquation {
         String point = "(" + x + ", " + (x * slope + yIntercept) + ")";
         return point;
     }
+    public String lineinfo(){
+        String c1 = "(" + firstX + ", " + firstY + ")";
+        String c2 = "(" + secondX + ", " + secondY + ")";
+
+        return "The two points are: " + c1 + " and " + c2 + "\n" +
+                "The equation of the line between these points is: "+ equation + "\n"
+                + "The slope of this line is: " + slope + "\n" + "The y-intercept of this line is: " + yIntercept
+                + "\n" + "The distance between these points is " + distance;
+    }
+
 }
 
 
